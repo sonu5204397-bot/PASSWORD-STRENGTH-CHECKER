@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fc">
+  <title>PASSWORD STRENGTH CHECKER</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+  <main class="page">
+    <section class="checker" aria-labelledby="page-title">
+      <header class="intro">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7.5 10V7.25a4.5 4.5 0 0 1 9 0V10" />
+            <rect x="5" y="10" width="14" height="11" rx="2.5" />
+            <path d="M12 14.5v2" />
+          </svg>
+        </div>
+        <h1 id="page-title">PASSWORD STRENGTH CHECKER</h1>
+        <p>Check your password strength instantly.</p>
+      </header>
+
+      <div class="password-field">
+        <label for="password">Password</label>
+        <div class="input-wrap">
+          <input
+            id="password"
+            name="password"
+            type="password"
+            autocomplete="new-password"
+            autocapitalize="off"
+            spellcheck="false"
+            aria-describedby="privacy-note"
+            placeholder="Enter a password"
+          >
+          <button
+            id="visibility-toggle"
+            class="visibility-toggle"
+            type="button"
+            aria-label="Show password"
+            aria-pressed="false"
+          >
+            <svg class="eye-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z" />
+              <circle cx="12" cy="12" r="2.5" />
+            </svg>
+            <span>Show</span>
+          </button>
+        </div>
+      </div>
+
+      <section class="strength-panel" aria-live="polite" aria-atomic="true">
+        <div class="strength-header">
+          <span class="strength-caption">Password strength</span>
+          <span id="strength-label" class="strength-label" data-strength="empty">Not checked</span>
+        </div>
+        <div
+          id="strength-meter"
+          class="strength-meter"
+          role="meter"
+          aria-label="Password strength"
+          aria-valuemin="0"
+          aria-valuemax="8"
+          aria-valuenow="0"
+          aria-valuetext="Not checked"
+        >
+          <span class="meter-segment"></span>
+          <span class="meter-segment"></span>
+          <span class="meter-segment"></span>
+          <span class="meter-segment"></span>
+        </div>
+      </section>
+
+      <ul class="criteria" aria-label="Password requirements">
+        <li id="criterion-length" class="criterion">
+          <span class="criterion-icon" aria-hidden="true"></span>
+          <span>At least 12 characters</span>
+        </li>
+        <li id="criterion-uppercase" class="criterion">
+          <span class="criterion-icon" aria-hidden="true"></span>
+          <span>Uppercase letter</span>
+        </li>
+        <li id="criterion-lowercase" class="criterion">
+          <span class="criterion-icon" aria-hidden="true"></span>
+          <span>Lowercase letter</span>
+        </li>
+        <li id="criterion-number" class="criterion">
+          <span class="criterion-icon" aria-hidden="true"></span>
+          <span>Number</span>
+        </li>
+        <li id="criterion-special" class="criterion">
+          <span class="criterion-icon" aria-hidden="true"></span>
+          <span>Special character</span>
+        </li>
+      </ul>
+
+      <p id="suggestions" class="suggestions" aria-live="polite">
+        Your password is checked only in this browser.
+      </p>
+      <p id="privacy-note" class="privacy-note">
+        Your password is never stored, logged, or sent anywhere.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
